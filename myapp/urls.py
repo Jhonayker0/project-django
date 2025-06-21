@@ -19,6 +19,11 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.hello_world, name='hello_world'),
-    path('about/', views.about, name='about'),
+    # Here we are assigning the path of our url to login
+    path('', views.signIn),
+    path('postsignIn/', views.postsignIn),
+    path('signUp/', views.signUp, name="signup"),
+    path('logout/', views.logout, name="log"),
+    path('postsignUp/', views.postsignUp),
 ]
+ 
