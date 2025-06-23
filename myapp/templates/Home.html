@@ -5,43 +5,66 @@
     <title>Welcome</title>
     <style>
         body {
-        background-image: url(https://proingra.com/wp-content/uploads/2023/10/sabor-dulzura-pasteleria-pop-mart-blindbox-fondo-limpio-ia-generativa-scaled.jpg);
-        background-size: cover;       /* Cubre todo el espacio disponible */
-        background-position: center;  /* Centra la imagen */
-        background-repeat: no-repeat; /* Evita que se repita */
-        background-attachment: fixed; /* Fija la imagen al desplazar */
-        margin: 0;                   /* Elimina márgenes predeterminados */
-        height: 100vh;               /* Ocupa 100% del viewport height */
-        width: 100vw;                /* Ocupa 100% del viewport width */
-    }
-        div{
-            position:absolute;
-            right:10px;
-            top:5px;
+            background-image: url(https://proingra.com/wp-content/uploads/2023/10/sabor-dulzura-pasteleria-pop-mart-blindbox-fondo-limpio-ia-generativa-scaled.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
-        p{
-            font-size: 32px;
+        .container {
+            background: rgba(255,255,255,0.85);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 40px 30px 30px 30px;
+            max-width: 400px;
+            margin: 100px auto 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #07b3b9;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+        p {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 30px;
         }
         .logout-btn {
             display: inline-block;
             text-align: center;
             text-decoration: none;
-            background-color: rgba(7, 179, 185, 0.753);
+            background-color: rgba(7, 179, 185, 0.85);
             color: white;
-            width: 70px;
-            height: 40px;
-            line-height: 40px;
+            width: 120px;
+            height: 45px;
+            line-height: 45px;
             border: none;
-            border-radius: 5px;
-            font: inherit;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
             cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(7,179,185,0.15);
+        }
+        .logout-btn:hover {
+            background-color: #05969b;
+            box-shadow: 0 4px 16px rgba(7,179,185,0.25);
         }
     </style>
 </head>
 <body>
-<br><br>
-<div>
-    <a href="{% url 'log' %}" class="logout-btn">Logout</a>
-</div>
+    <div class="container">
+        <h1>Bienvenido</h1>
+        <p>Has iniciado sesión correctamente.<br>¡Disfruta tu experiencia!</p>
+        <a href="{% url 'log' %}" class="logout-btn">Logout</a>
+    </div>
 </body>
 </html>

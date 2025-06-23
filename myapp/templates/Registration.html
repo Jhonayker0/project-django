@@ -1,0 +1,150 @@
+{% if message %}
+<script>
+    alert('{{ message }}');
+</script>
+{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <style>
+        body {
+            background-image: url(https://proingra.com/wp-content/uploads/2023/10/sabor-dulzura-pasteleria-pop-mart-blindbox-fondo-limpio-ia-generativa-scaled.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            font-family: Arial, sans-serif;
+        }
+        
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 100px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        input {
+            width: 100%;
+            height: 40px;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        
+        input:focus {
+            border-color: rgba(7, 179, 185, 0.753);
+            outline: none;
+        }
+        
+        input[type="submit"] {
+            background-color: rgba(7, 179, 185, 0.753);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: rgba(7, 179, 185, 0.9);
+        }
+        
+        label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-top: 10px;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            width: auto;
+            height: auto;
+            margin-right: 10px;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .login-link a {
+            color: rgba(7, 179, 185, 0.753);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .role-info {
+            background-color: #e8f4f8;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid rgba(7, 179, 185, 0.753);
+            font-size: 14px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Registro de Usuario</h1>
+        
+        <div class="role-info">
+            <strong>Nota:</strong> Al registrarte serás asignado como <strong>Cliente</strong>. 
+            Los administradores son asignados manualmente.
+        </div>
+        
+        <form action="/postsignUp/" method="post">
+            {% csrf_token %}
+            
+            <label for="name">Nombre Completo</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+            
+            <label for="pass">Contraseña</label>
+            <input type="password" id="pass" name="pass" placeholder="Contraseña" required>
+            
+            <label for="pass-repeat">Confirmar Contraseña</label>
+            <input type="password" id="pass-repeat" name="pass-repeat" placeholder="Repetir contraseña" required>
+            
+            <div class="checkbox-container">
+                <input type="checkbox" id="remember" name="remember" checked>
+                <label for="remember">Recordarme</label>
+            </div>
+            
+            <input type="submit" value="Registrarse">
+        </form>
+        
+        <div class="login-link">
+            ¿Ya tienes cuenta? <a href="{% url 'signIn' %}">Inicia Sesión</a>
+        </div>
+    </div>
+</body>
+</html>

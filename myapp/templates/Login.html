@@ -1,71 +1,145 @@
 {% if message %}
+{% load static %}
 <script>
     alert('{{ message }}');
 </script>
 {% endif %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Sign In</title>
     <style>
-         body {
-        background-image: url(https://proingra.com/wp-content/uploads/2023/10/sabor-dulzura-pasteleria-pop-mart-blindbox-fondo-limpio-ia-generativa-scaled.jpg);
-        background-size: cover;       /* Cubre todo el espacio disponible */
-        background-position: center;  /* Centra la imagen */
-        background-repeat: no-repeat; /* Evita que se repita */
-        background-attachment: fixed; /* Fija la imagen al desplazar */
-        margin: 0;                   /* Elimina márgenes predeterminados */
-        height: 100vh;               /* Ocupa 100% del viewport height */
-        width: 100vw;                /* Ocupa 100% del viewport width */
-    }
-         input{
-            margin-top:20px;
-            height: 30px;
-             padding: 12px 20px;
-             width: 150px;
-             margin: 8px 0;
-            border-radius: 5px;
+        body {
+            background-image: url(https://proingra.com/wp-content/uploads/2023/10/sabor-dulzura-pasteleria-pop-mart-blindbox-fondo-limpio-ia-generativa-scaled.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            min-height: 100vh;
+            min-width: 100vw;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        input[type="submit"]{
-            background-color: rgba(7, 179, 185, 0.753);
-            color: rgb(255, 255, 255);
-            border: none;
-            border-radius: 5px;
-        }
-        .signup-link {
-            display: inline-block;
-            background-color: rgba(7, 179, 185, 0.753);
-            color: white;
-            width: 150px;
-            height: 30px;
-            line-height: 30px;
+        .login-container {
+            background: rgba(255,255,255,0.90);
+            border-radius: 18px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            padding: 40px 35px 30px 35px;
+            max-width: 350px;
+            width: 100%;
             text-align: center;
+        }
+        .login-container h2 {
+            color: #07b3b9;
+            margin-bottom: 25px;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+        .login-container label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: 500;
+            text-align: left;
+        }
+        .login-container input[type="email"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px 14px;
+            margin-bottom: 18px;
+            border: 1px solid #b2dfdf;
+            border-radius: 6px;
+            font-size: 1em;
+            background: #f7f7f7;
+            transition: border 0.2s;
+        }
+        .login-container input[type="email"]:focus,
+        .login-container input[type="password"]:focus {
+            border: 1.5px solid #07b3b9;
+            outline: none;
+        }
+        .login-container input[type="submit"] {
+            background-color: #07b3b9;
+            color: #fff;
             border: none;
-            border-radius: 5px;
-            text-decoration: none;
+            border-radius: 6px;
+            width: 100%;
+            height: 40px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
             margin-top: 10px;
+            margin-bottom: 10px;
+            transition: background 0.2s;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #05969b;
+        }
+        .login-container .signup-link {
+            display: inline-block;
+            background-color: #07b3b9;
+            color: white;
+            width: 100%;
+            height: 36px;
+            line-height: 36px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 12px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .login-container .signup-link:hover {
+            background-color: #05969b;
+        }
+        .login-container .forgot {
+            color: #333;
+            font-size: 0.98em;
+            margin-bottom: 12px;
+        }
+        .login-container .forgot a {
+            color: #07b3b9;
+            text-decoration: underline;
+        }
+        .login-container .remember {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.98em;
+            color: #333;
+        }
+        .login-container .remember input[type="checkbox"] {
+            margin-right: 7px;
         }
     </style>
 </head>
 <body>
+    <div class="login-container">
+        <img src="{% static 'img/logo.png' %}" alt="Logo" style="width:100px; margin-bottom:-30px;">
 
-<form action="/postsignIn/" method="post">
-    {% csrf_token %}
-    <br/>
-    <label for="Email">Email</label>
-    <input type="email" id="Email" name="email"><br><br>
-    <label for="Password">Password</label>
-    <input type="password" id="Password" name="pass"><br><br>
-    <input type="submit" value="SignIn"><br><br>
-    <p style="color: black;padding: 10px 0;">
-        Forgot Password? <a href="/reset/" style="color: black;">Click Here to Reset</a>
-    </p>
-    <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-    <br>
-    <a href="{% url 'signup' %}" class="signup-link">SignUp</a>
-</form>
+        <h2>Iniciar Sesión</h2>
+
+        <form action="/postsignIn/" method="post">
+            {% csrf_token %}
+            <label for="Email">E-mail</label>
+            <input type="email" id="Email" name="email" required>
+            <label for="Password">Contraseña</label>
+            <input type="password" id="Password" name="pass" required>
+            <div class="remember">
+                <input type="checkbox" checked="checked" name="remember" id="remember">
+                <label for="remember" style="margin:0;">Recordar contraseña</label>
+            </div>
+            <input type="submit" value="Ingresar">
+            <div class="forgot">
+                Olvidaste tu contraseña? <a href="/reset/">Click Aquí</a>
+            </div>
+            <a href="{% url 'signup' %}" class="signup-link">Registrarse</a>
+        </form>
+    </div>
 </body>
 </html>
