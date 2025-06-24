@@ -1,13 +1,15 @@
 {% if message %}
+{% load static %}
 <script>
     alert('{{ message }}');
 </script>
 {% endif %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Registro</title>
+    <link rel="stylesheet" href="{% static 'css/button.css' %}">
     <style>
         body {
             background-image: url(https://proingra.com/wp-content/uploads/2023/10/sabor-dulzura-pasteleria-pop-mart-blindbox-fondo-limpio-ia-generativa-scaled.jpg);
@@ -16,17 +18,22 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
             margin: 0;
-            height: 100vh;
-            width: 100vw;
+            min-height: 100vh;
+            min-width: 100vw;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 40px;    /* Espacio arriba */
+            padding-bottom: 40px; /* Espacio abajo */
         }
         
         .form-container {
             background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
+            padding: 35px;
             border-radius: 10px;
             max-width: 400px;
-            margin: 100px auto;
+            /* Elimina el margin-top/margin */
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
         
@@ -75,7 +82,7 @@
         .checkbox-container {
             display: flex;
             align-items: center;
-            margin: 15px 0;
+            margin: 8px 0;
         }
         
         .checkbox-container input[type="checkbox"] {
@@ -108,6 +115,11 @@
             font-size: 14px;
             color: #2c3e50;
         }
+
+        .btn-block {
+            width: 100%;
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -115,8 +127,8 @@
         <h1>Registro de Usuario</h1>
         
         <div class="role-info">
-            <strong>Nota:</strong> Al registrarte serás asignado como <strong>Cliente</strong>. 
-            Los administradores son asignados manualmente.
+            <strong>Nota:</strong> Te estás registrando como <strong>Cliente</strong>. 
+            Puedes recibir información a tu e-mail ingresado.
         </div>
         
         <form action="/postsignUp/" method="post">
@@ -139,7 +151,7 @@
                 <label for="remember">Recordarme</label>
             </div>
             
-            <input type="submit" value="Registrarse">
+            <button type="submit" class="btn-block">Registrarse</button>
         </form>
         
         <div class="login-link">
