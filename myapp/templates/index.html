@@ -1,1 +1,257 @@
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit, maxime. Quas quaerat officia cumque autem, laudantium ipsam eligendi, iusto reiciendis, nesciunt voluptatum minima eveniet quo amet mollitia repudiandae. Similique quaerat totam ex, aut, aspernatur id magni suscipit vitae quia deserunt sint iusto dolorem placeat, qui nam! Cum illo maiores sunt!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias Dulces - Repostería Artesanal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff9f0;
+            color: #5a3921;
+            line-height: 1.6;
+        }
+        
+        /* Banner principal */
+        .banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.4)), 
+                        url('https://sdmntprwestus.oaiusercontent.com/files/00000000-70ec-6230-97f2-afedb1fb563a/raw?se=2025-06-25T17%3A44%3A04Z&sp=r&sv=2024-08-04&sr=b&scid=536c201f-791f-5aad-b51c-f1c3b1a33eb5&skoid=ea0c7534-f237-4ccd-b7ea-766c4ed977ad&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-25T16%3A18%3A11Z&ske=2025-06-26T16%3A18%3A11Z&sks=b&skv=2024-08-04&sig=edfrzWL2eKki/khNn2Gd24c3D7AzGi0TFWX6/FEan0U%3D');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .banner-content {
+            max-width: 900px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5.5rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slogan {
+            font-size: 1.3rem;
+            color: #ffebcd;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #e6a756;
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 2px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-button:hover {
+            background: #d48d3a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Sección de información */
+        .info-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(90, 57, 33, 0.1);
+            max-width: 350px;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #5a3921;
+        }
+        
+        .card-text {
+            color: #7f5539;
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #5a3921;
+            color: #ffebcd;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #ffebcd;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: #e6a756;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 3.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.8rem;
+            }
+            
+            .slogan {
+                font-size: 1.1rem;
+            }
+            
+            .cupcake, .macaron {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner principal -->
+    <div class="banner">
+        <div class="banner-content">
+            <h1 class="logo">Delicias Juskar</h1>
+            <h2 class="tagline">Repostería Artesanal con Amor</h2>
+            <p class="slogan">Descubre nuestros exquisitos pasteles, cupcakes y postres hechos con ingredientes de primera calidad y mucha pasión</p>
+            <a href="#" class="cta-button">Explora Nuestros Productos</a>
+        </div>
+        
+        <!-- Elementos decorativos -->
+        <div class="cupcake"></div>
+        <div class="macaron"></div>
+    </div>
+    
+    <!-- Sección de información -->
+    <div class="info-section">
+        <div class="info-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="card-content">
+                <h3 class="card-title">Pasteles Personalizados</h3>
+                <p class="card-text">Creamos pasteles únicos para tus eventos especiales. Bodas, cumpleaños, aniversarios o simplemente porque sí.</p>
+            </div>
+        </div>
+        
+        <div class="info-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="card-content">
+                <h3 class="card-title">Cupcakes Creativos</h3>
+                <p class="card-text">Pequeñas delicias con infinitas posibilidades. Más de 20 sabores y decoraciones para todos los gustos.</p>
+            </div>
+        </div>
+        
+        <div class="info-card">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1603532648955-a039f2e6da76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80');"></div>
+            <div class="card-content">
+                <h3 class="card-title">Postres Saludables</h3>
+                <p class="card-text">Para quienes buscan cuidarse sin renunciar al placer. Opciones sin gluten, veganas y bajas en azúcar.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p>© 2023 Delicias Dulces - Todos los derechos reservados</p>
+        <p>Horario: Lunes a Sábado de 9:00 a 20:00</p>
+    </footer>
+</body>
+</html>
