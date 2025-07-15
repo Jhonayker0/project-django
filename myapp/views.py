@@ -24,7 +24,7 @@ authe = firebase.auth()
 database = firebase.database()
 
 def signIn(request):
-    return render(request, "Login.html")
+    return render(request, "index.html")
 
 def home(request):
     return render(request, "Home.html")
