@@ -205,7 +205,35 @@
             color: #e6a756;
         }
         
-        /* Responsive */
+        /* Botón de pedido */
+        .pedido-btn,
+        .banner-pedido-btn {
+            background: #e6a756;
+            color: #fff;
+            border: 2px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s, box-shadow 0.2s;
+            border-radius: 50px;      /* Cambia el radio para hacerlo más redondeado */
+            padding: 10px 25px;   
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .pedido-btn:hover,
+        .banner-pedido-btn:hover {
+            background: #d48d3a;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .banner-pedido-btn {
+            position: absolute;
+            top: 40px;
+            right: 50px;
+            z-index: 10;
+        }
         @media (max-width: 768px) {
             .logo {
                 font-size: 3.5rem;
@@ -222,22 +250,37 @@
             .cupcake, .macaron {
                 display: none;
             }
+            
+            .pedido-btn {
+                top: 15px;
+                right: 15px;
+                padding: 10px 18px;
+                font-size: 1rem;
+            }
+            
+            .banner-pedido-btn {
+                top: 18px;
+                right: 18px;
+                padding: 10px 18px;
+                font-size: 1rem;
+            }
+            
         }
     </style>
 </head>
 <body>
+    <!-- Botón superior derecho -->
+    
     <!-- Banner principal -->
     <div class="banner">
+        <!-- Botón fijo dentro del banner -->
+        <a href="{% url 'login' %}" class="pedido-btn banner-pedido-btn">Hacer un pedido</a>
         <div class="banner-content">
             <h1 class="logo">Delicias Juskar</h1>
             <h2 class="tagline">Repostería Artesanal con Amor</h2>
             <p class="slogan">Descubre nuestros exquisitos pasteles, cupcakes y postres hechos con ingredientes de primera calidad y mucha pasión</p>
             <a href="#productos" class="cta-button">Explora Nuestros Productos</a>
         </div>
-        
-        <!-- Elementos decorativos -->
-        <div class="cupcake"></div>
-        <div class="macaron"></div>
     </div>
     
     <!-- Sección de información -->
